@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+        | CUNOR
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+</head>
+
+<body>
+    <div class="nav_info">
+        <img id="logo" src="{% static 'images/usaclogo.png' %}">
+        <ul class="infohead">
+            <li>PBX (502) 7956 6600 / Extension: 206</li>
+            <li>coordinacionacademica@cunor.edu.gt</li>
+        </ul>
+        <a class="logbtn" href="#"><button>Inicia sesión</button></a>
+    </div>
+    <header>
+        
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Cargas ▾</a>
+                    <ul>
+                        <li><a href="#">Validación de cargas académicas</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Pénsum ▾</a>
+                    <ul>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Carreras</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Edificios ▾</a>
+                    <ul>
+                        <li><a href="#">Administración de edificios y salones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Usuarios ▾</a>
+                    <ul>
+                        <li><a href="#">Adminsitración de estudiantes</a></li>
+                        <li><a href="#">Administración de docentes</a></li>
+                        <li><a href="#">Administración de usuarios</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Seguridad ▾</a>
+                    <ul>
+                        <li><a href="#">Cambiar contraseña</a></li>
+                        <li><a href="#">Administración de roles y permisos</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+        {% block content %}
+        {% endblock %}
+    <footer>
+        <p>PBX: +502 7956 6600</p>
+        <p>Correo: informacion@cunor.edu.gt</p>
+        <p>Dirección: 7a. calle 1-11 zona 6. Cobán, Alta Verapaz. Código Postal: 16001</p>
+        <br>
+        <p>201843018 - Giancarlo De León Pérez</p>
+        <p>202041906 - Jorge Alejandro Fernández de la Cruz</p>
+        <p>202043340 - Jorge Mario Dubón Rosales</p>
+        <p>201943148 - Oscar Anibal Sierra Chocooj</p>
+        <br>
+        <p>&copy; Grupo 1 - Bases de Datos 1 | CUNOR</p>
+    </footer>
+</body>
+
+</html>
