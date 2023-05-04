@@ -21,13 +21,14 @@
             <li>PBX (502) 7956 6600 / Extension: 206</li>
             <li>coordinacionacademica@cunor.edu.gt</li>
         </ul>
-        <a class="logbtn" href="#"><button>Inicia sesión</button></a>
+
+    
     </div>
     <header>
-        
+        {%if request.user.is_authenticated%}
         <nav>
             <ul class="nav_links">
-                <li><a href="#">Inicio</a></li>
+                <li><a>Conectado como: {{request.user.username}}</a></li>
                 <li><a href="#">Cargas ▾</a>
                     <ul>
                         <li><a href="#">Validación de cargas académicas</a></li>
@@ -53,12 +54,14 @@
                 </li>
                 <li><a href="#">Seguridad ▾</a>
                     <ul>
+                        <li><a href="{% url 'logout'%}">Cerrar Sesión</a></li>
                         <li><a href="#">Cambiar contraseña</a></li>
                         <li><a href="#">Administración de roles y permisos</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+        {% endif %}
     </header>
     
         {% block content %}
