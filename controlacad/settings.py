@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Constantes adicionales
 
-AUTH_USER_MODEL = 'Login.User'
+AUTH_USER_MODEL = 'Login.Usuario'
 LOGIN_REDIRECT_URL = 'inicio/'
 LOGOUT_REDIRECT_URL = 'login'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

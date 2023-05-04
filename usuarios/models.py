@@ -1,9 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 
+from Login.models import Usuario
 
-class Usuario(AbstractUser):
-    pass
 
 
 class DocumentoIdentificacion(models.Model):
@@ -22,7 +20,7 @@ class CertificacionNacimiento(models.Model):
 
 class Estudiante(models.Model):
     usuario = models.OneToOneField(
-        'Usuario', on_delete=models.CASCADE)
+        'Login.Usuario', on_delete=models.CASCADE)
     tipo_documento = models.ForeignKey(
         'DocumentoIdentificacion', on_delete=models.SET_NULL, null=True)
     num_identificacion = models.CharField(max_length=30, null=True)
