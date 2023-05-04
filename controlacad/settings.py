@@ -122,12 +122,16 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT= "static_root"
 
-AUTH_USER_MODEL = 'Login.User'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Constantes adicionales
+
+AUTH_USER_MODEL = 'Login.User'
 LOGIN_REDIRECT_URL = 'inicio/'
 LOGOUT_REDIRECT_URL = 'login'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
