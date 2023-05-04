@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
 from .forms import CustomeCreationUserForm
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render,redirect,reverse
 from django.core.mail import send_mail
 # Create your views here.
-
 
 class SignupView(generic.CreateView):
     template_name = "registration/signup.html"
@@ -16,7 +15,6 @@ class SignupView(generic.CreateView):
 
 def HomePage(request):
     return render(request, 'main/inicio.html')
-
 
 def LoginPage(request):
     return render(request, 'main/login.html')
