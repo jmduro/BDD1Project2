@@ -1,8 +1,5 @@
 from django.db import models
 
-from Login.models import Usuario
-
-
 
 class DocumentoIdentificacion(models.Model):
     nombre = models.CharField(max_length=30)
