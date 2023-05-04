@@ -17,7 +17,7 @@ class CertificacionNacimiento(models.Model):
 
 class Estudiante(models.Model):
     usuario = models.OneToOneField(
-        'Login.Usuario', on_delete=models.CASCADE)
+        'Login.UsuarioAutenticable', on_delete=models.CASCADE)
     tipo_documento = models.ForeignKey(
         'DocumentoIdentificacion', on_delete=models.SET_NULL, null=True)
     num_identificacion = models.CharField(max_length=30, null=True)
@@ -31,3 +31,30 @@ class Estudiante(models.Model):
     certificacion_nacimiento = models.OneToOneField(
         'CertificacionNacimiento', on_delete=models.SET_NULL, null=True)
     habilitado = models.BooleanField(default=True)
+
+
+class Docente(models.Model):
+    usuario = models.OneToOneField('Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    nombres = models.CharField(max_length=50)
+    apellidos = models.CharField(max_length=50)
+    profesion = models.CharField(max_length=50)
+    acronimo = models.CharField(max_length=20)
+    correo_electronico = models.EmailField()
+    cui = models.CharField(max_length=30)
+    telefono = models.CharField(max_length=25)
+    num_personal = models.CharField(max_length=10)
+    # docente_titular
+    habilitado = models.BooleanField()
+
+
+class Usuario(models.Model):
+    usuario = models.OneToOneField('Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    nombres = models.CharField(max_length=50)
+    apellidos = models.CharField(max_length=50)
+    profesion = models.CharField(max_length=50)
+    acronimo = models.CharField(max_length=20)
+    correo_electronico = models.EmailField()
+    cui = models.CharField(max_length=30)
+    telefono = models.CharField(max_length=25)
+    num_personal = models.CharField(max_length=10)
+    habilitado = models.BooleanField()
