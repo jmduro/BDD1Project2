@@ -16,6 +16,7 @@
 
 <body>
 
+    <!-- Barra superior -->
     <div class="nav_info">
         <img id="logo" src="{% static 'images/usaclogo.png' %}">
         <ul class="infohead">
@@ -24,6 +25,7 @@
         </ul>
     </div>
 
+    <!-- Navbar -->
     <header>
         {% if request.user.is_authenticated %}
         <nav>
@@ -64,9 +66,11 @@
         {% endif %}
     </header>
 
+    <!-- Contenido -->
     {% block content %}
     {% endblock %}
 
+    <!-- Footer -->
     <footer>
         <p>PBX: +502 7956 6600</p>
         <p>Correo: informacion@cunor.edu.gt</p>
