@@ -76,28 +76,10 @@ WSGI_APPLICATION = 'controlacad.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # Autenticación de Windows
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'controlacad',
-        'HOST': 'localhost',
-        'PORT': '',
-        'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server',
-                    'trusted_connection': 'true',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
-    # Autenticación de SQL Server
-    # 'default': {
-    #     'ENGINE': 'mssql',
-    #     'NAME': 'controlacad',
-    #     'USER': 'USER_NAME',
-    #     'PASSWORD': 'PASSWORD',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    #     'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server',
-    #     },
-    # }
 }
 
 
