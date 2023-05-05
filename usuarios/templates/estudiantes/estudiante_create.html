@@ -13,6 +13,10 @@ Crear estudiante
         {{ form.as_p }}
         <button type="submit">Registrar</button>
     </form>
+    <div>
+        <p>Usuario: {{ form.carnet.value }}</p>
+        <p>Contraseña: {{ password }}</p>
+    </div>
 </div>
 
 {% endblock content %}
