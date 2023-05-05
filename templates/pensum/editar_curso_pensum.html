@@ -1,0 +1,26 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Editar curso para pensum 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Editar {{ curso.curso }}</h1>
+    </div>
+    <div class="main-box">
+        <br>
+        <a  href="{% url 'pensum:carrera' %}"><button class="logbtn">Regresar</button></a>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="logbtn" type="submit">Editar curso</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

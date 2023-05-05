@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import carrera, crear_carrera, pensum, curso, editar_carrera, crear_curso, editar_curso
-from .views import crear_pensum, editar_pensum, ciclo, crear_ciclo, curso_pensum, agregar_curso
+from .views import crear_pensum, editar_pensum, ciclo, crear_ciclo, curso_pensum, agregar_curso, editar_curso_pensum
 
 app_name = "pensum"
 
@@ -18,4 +18,5 @@ urlpatterns = [
     path('crear_ciclo/', crear_ciclo, name='crear_ciclo'),
     path('curso_pensum/<pk>', curso_pensum, name='curso_pensum'),
     path('agregar_curso/', agregar_curso, name='agregar_curso'),
+    path('editar_curso_pensum/<pk>', editar_curso_pensum, name='editar_curso_pensum'),
 ]
