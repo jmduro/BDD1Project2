@@ -1,4 +1,5 @@
 {% extends "main/layout.html" %}
+{% load static %}
 
 {% block title %}
 Crear estudiante
@@ -7,12 +8,13 @@ Crear estudiante
 {% block content %}
 
 <div class="logContent">
-    <a href="{% url estudiantes:estudiante-list %}">Volver a la lista de estudiantes</a>
+    <a href="{% url 'usuarios:estudiante-list' %}">Volver a la lista de estudiantes</a>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button class="logbtn" type="submit">Guardar</button>
     </form>
 </div>
+<script src="{% static 'js/calendario.js' %}"></script>
 
 {% endblock content %}

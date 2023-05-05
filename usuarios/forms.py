@@ -17,6 +17,9 @@ class EstudianteCreateModelForm(forms.ModelForm):
             'correo_electronico',
             # 'certificacion_nacimiento',
         )
+        widgets = {
+            'fecha_nacimiento': forms.DateInput(attrs={'autocomplete': 'off'}),
+        }
 
 
 class EstudianteUpdateModelForm(forms.ModelForm):
@@ -35,3 +38,6 @@ class EstudianteUpdateModelForm(forms.ModelForm):
             # 'certificacion_nacimiento',
             'habilitado'
         )
+        widgets = {
+            'fecha_nacimiento': forms.DateInput(attrs={'autocomplete': 'off'}),
+        }

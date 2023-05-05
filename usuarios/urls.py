@@ -5,7 +5,7 @@ from .views import EstudianteListView, EstudianteUpdateView, EstudianteDetailVie
 app_name = 'usuarios'
 
 urlpatterns = [
-    path('estudiantes', EstudianteListView.as_view(), name='estudiantes-list'),
+    path('estudiantes', EstudianteListView.as_view(), name='estudiante-list'),
     path('estudiantes/<int:pk>/', EstudianteDetailView.as_view(), name='estudiante-detail'),
     path('estudiantes/<int:pk>/update/', EstudianteUpdateView.as_view(), name='estudiante-update'),
     path('estudiantes/create/', EstudianteCreateView.as_view(), name='estudiante-create'),

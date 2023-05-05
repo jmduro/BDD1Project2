@@ -9,6 +9,7 @@ from .util import generate_password
 
 UsuarioAutenticable = get_user_model()
 
+# Vistas módulo Estudiantes
 
 class EstudianteListView(generic.ListView):
     template_name = 'estudiantes/estudiante_list.html'
@@ -23,20 +24,19 @@ class EstudianteDetailView(generic.DetailView):
 
 
 class EstudianteCreateView(generic.CreateView):
-    template_name = 'estudiantes/estudiante-create.html'
+    template_name = 'estudiantes/estudiante_create.html'
     form_class = EstudianteCreateModelForm
-    usuario_global = ''
-    password_global = ''
 
     def get_success_url(self):
-        return reverse('estudiantes:estudiante-list')
+        return reverse('usuarios:estudiante-list')
 
     def form_valid(self, form):
-        estudiante = form.save(commit=False)
-        usuario = estudiante.carnet
+        nuevo_estudiante = form.save(commit=False)
+        usuario = nuevo_estudiante.carnet
         password = self.get_context_data()['password']
-        UsuarioAutenticable.objects.create(usuario=usuario, password=password)
-        estudiante.save()
+        nuevo_usuario = UsuarioAutenticable.objects.create(username=usuario, password=password)
+        nuevo_estudiante.usuario_id = nuevo_usuario.id
+        nuevo_estudiante.save()
         return super(EstudianteCreateView, self).form_valid(form)
 
     def get_context_data(self, **kwargs: Any):
@@ -46,18 +46,23 @@ class EstudianteCreateView(generic.CreateView):
         return context
 
 
-class EstudianteUpdateView(generic.CreateView):
-    template_name = 'estudiantes/estudiante-update.html'
+class EstudianteUpdateView(generic.UpdateView):
+    template_name = 'estudiantes/estudiante_update.html'
     queryset = Estudiante.objects.all()
     form_class = EstudianteUpdateModelForm
 
     def get_success_url(self):
-        return reverse('estudiantes:estudiante-list')
+        return reverse('usuarios:estudiante-list')
 
 
 class EstudianteDeleteView(generic.DeleteView):
-    template_name = 'estudiantes/estudiante-delete.html'
+    template_name = 'estudiantes/estudiante_delete.html'
     queryset = Estudiante.objects.all()
 
     def get_success_url(self):
-        return reverse('estudiantes:estudiante-list')
+        return reverse('usuarios:estudiante-list')
+
+
+# Vistas módulo Docentes
+
+# Vistas módulo Usuarios
