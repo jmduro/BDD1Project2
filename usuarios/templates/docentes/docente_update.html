@@ -1,0 +1,20 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}
+Editar docente
+{% endblock title %}
+
+{% block content %}
+
+<div class="logContent">
+    <a href="{% url 'usuarios:docente-list' %}">Volver a la administración de docentes</a>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="logbtn" type="submit">Guardar</button>
+    </form>
+</div>
+<script src="{% static 'js/calendario.js' %}"></script>
+
+{% endblock content %}

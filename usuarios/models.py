@@ -44,7 +44,7 @@ class Docente(models.Model):
     telefono = models.CharField(max_length=25)
     num_personal = models.CharField(max_length=10)
     # docente_titular
-    habilitado = models.BooleanField()
+    habilitado = models.BooleanField(default=True)
 
 
 class Usuario(models.Model):
@@ -57,4 +57,4 @@ class Usuario(models.Model):
     cui = models.CharField(max_length=30)
     telefono = models.CharField(max_length=25)
     num_personal = models.CharField(max_length=10)
-    habilitado = models.BooleanField()
+    habilitado = models.BooleanField(default=True)

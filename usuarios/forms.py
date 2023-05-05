@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estudiante
+from .models import Estudiante, Docente
 
 
 class EstudianteCreateModelForm(forms.ModelForm):
@@ -41,3 +41,36 @@ class EstudianteUpdateModelForm(forms.ModelForm):
         widgets = {
             'fecha_nacimiento': forms.DateInput(attrs={'autocomplete': 'off'}),
         }
+
+
+class DocenteCreateModelForm(forms.ModelForm):
+    class Meta:
+        model = Docente
+        fields = (
+            'nombres',
+            'apellidos',
+            'profesion',
+            'acronimo',
+            'correo_electronico',
+            'cui',
+            'telefono',
+            'num_personal',
+            # 'docente_titular',
+        )
+
+
+class DocenteUpdateModelForm(forms.ModelForm):
+    class Meta:
+        model = Docente
+        fields = (
+            'nombres',
+            'apellidos',
+            'profesion',
+            'acronimo',
+            'correo_electronico',
+            'cui',
+            'telefono',
+            'num_personal',
+            # 'docente_titular',
+            'habilitado'
+        )
