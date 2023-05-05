@@ -28,7 +28,6 @@ urlpatterns = [
     path('usuarios/', include('usuarios.urls', namespace='usuarios')),
     # Edificios
     path('edificios/', include('edificios.urls', namespace='edificios')),
-    
-
+    # Pensum
     path('inicio/pensum/', include('pensum.urls', namespace="pensum"))
 ]
