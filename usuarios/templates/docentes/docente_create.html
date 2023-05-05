@@ -8,7 +8,9 @@ Registro de docentes
 {% block content %}
 
 <div class="logContent">
-    <a href="{% url 'usuarios:docente-list' %}">Volver a la administración de docentes</a>
+    <a href="{% url 'usuarios:docente-list' %}">Cancelar</a>
+    <hr>
+    <h1>Registro de docentes</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

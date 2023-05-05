@@ -1,14 +1,14 @@
 {% extends "main/layout.html" %}
 
 {% block title %}
-Crear estudiante
+Administración de estudiantes
 {% endblock title %}
 
 {% block content %}
 <div class="logContent">
-    <a href="{% url 'usuarios:estudiante-create' %}">Crear estudiante</a>
+    <a href="{% url 'usuarios:estudiante-create' %}">Registrar</a>
     <hr>
-    <h1>Lista de estudiantes</h1>
+    <h1>Administración de estudiantes</h1>
     <table>
         <tr>
             <th>Nombre completo</th>

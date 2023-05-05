@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block title %}
-Crear estudiante
+Registro de estudiantes
 {% endblock title %}
 
 {% block content %}
 
 <div class="logContent">
-    <a href="{% url 'usuarios:estudiante-list' %}">Volver a la lista de estudiantes</a>
+    <a href="{% url 'usuarios:estudiante-list' %}">Cancelar</a>
+    <hr>
+    <h1>Administración de estudiantes</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
