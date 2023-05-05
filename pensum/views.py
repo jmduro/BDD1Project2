@@ -19,7 +19,7 @@ def crear_carrera(request):
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return redirect("/carrera")
+            return redirect("/inicio/pensum/carrera")
     context = {
         "form": form
     }
@@ -33,7 +33,7 @@ def editar_carrera(request, pk):
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return redirect("/carrera")
+            return redirect("/inicio/pensum/carrera")
     context = {
         "form" : form,
         "carrera" : carrera
@@ -57,7 +57,7 @@ def crear_curso(request):
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return redirect("/curso")
+            return redirect("/inicio/pensum/curso")
     context = {
         "form": CursoModelForm()
     }
@@ -71,7 +71,7 @@ def editar_curso(request, pk):
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return reverse("/curso")
+            return redirect("/inicio/pensum/curso")
     context = {
         "form" : form,
         "curso" : curso
