@@ -1,0 +1,42 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Ciclos 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de ciclos</h1>
+    </div>
+    <h2>Para el pensum: {{ pensum.codigo }} - {{ pensum.inicio }}</h2>
+    <div class="main-box">
+        <table class="main-table">
+            <br>
+            <a  href="{% url 'pensum:carrera'%}"><button class="logbtn">Regresar</button></a>
+            <br>
+            <a  href="{% url 'pensum:crear_ciclo' %}"><button class="logbtn">Crear ciclo</button></a>
+            <br>
+            <tr>
+              <th>Ciclo</th>
+              <th>Opciones</th>
+            </tr>
+            {% for ciclos in ciclo %}
+            <tr>
+              <td>{{ ciclos.ciclo }}</td>
+              <td>
+                <ul>
+                    <li><a href="{% url 'pensum:curso_pensum' ciclos.pk %}">Agregar cursos</a></li>
+                </ul>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        <ul>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
