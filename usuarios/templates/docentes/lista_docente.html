@@ -23,7 +23,7 @@ Administración de docentes
             <td>{{ docente.nombres }} {{ docente.apellidos }}</td>
             <td>{{ docente.cui }}</td>
             <td>{{ docente.telefono }}</td>
-            <td><a href="{% url 'usuarios:docente-update' docente.pk %}">Editar</a></td>
+            <td><a href="{% url 'usuarios:editar-docente' docente.pk %}">Editar</a></td>
         </tr>
         {% endfor %}
     </table>

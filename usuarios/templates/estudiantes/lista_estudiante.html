@@ -6,7 +6,7 @@ Administración de estudiantes
 
 {% block content %}
 <div class="logContent">
-    <a href="{% url 'usuarios:estudiante-create' %}">Registrar</a>
+    <a href="{% url 'usuarios:crear-estudiante' %}">Registrar</a>
     <hr>
     <h1>Administración de estudiantes</h1>
     <table>
@@ -21,7 +21,7 @@ Administración de estudiantes
             <td>{{ estudiante.nombres }} {{ estudiante.apellidos }}</td>
             <td>{{ estudiante.carnet }}</td>
             <td>{{ estudiante.telefono }}</td>
-            <td><a href="{% url 'usuarios:estudiante-update' estudiante.pk %}">Editar</a></td>
+            <td><a href="{% url 'usuarios:editar-estudiante' estudiante.pk %}">Editar</a></td>
         </tr>
         {% endfor %}
     </table>

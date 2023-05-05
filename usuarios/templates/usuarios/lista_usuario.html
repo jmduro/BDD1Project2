@@ -6,7 +6,7 @@ Administración de usuarios
 
 {% block content %}
 <div class="logContent">
-    <a href="{% url 'usuarios:usuario-create' %}">Registrar</a>
+    <a href="{% url 'usuarios:crear-usuario' %}">Registrar</a>
     <hr>
     <h1>Administración de usuarios</h1>
     <table>
@@ -23,7 +23,7 @@ Administración de usuarios
             <td>{{ usuario.num_personal }}</td>
             <td>{{ usuario.cui }}</td>
             <td>{{ usuario.telefono }}</td>
-            <td><a href="{% url 'usuarios:usuario-update' usuario.pk %}">Editar</a></td>
+            <td><a href="{% url 'usuarios:editar-usuario' usuario.pk %}">Editar</a></td>
         </tr>
         {% endfor %}
     </table>

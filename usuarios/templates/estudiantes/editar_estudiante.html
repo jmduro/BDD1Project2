@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block title %}
-Editar usuario
+Editar información de estudiante
 {% endblock title %}
 
 {% block content %}
 
 <div class="logContent">
-    <a href="{% url 'usuarios:usuario-list' %}">Cancelar</a>
+    <a href="{% url 'usuarios:lista-estudiante' %}">Cancelar</a>
     <hr>
-    <h1>Editar usuario</h1>
+    <h1>Editar información de estudiante</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

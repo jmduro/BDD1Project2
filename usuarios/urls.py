@@ -1,28 +1,28 @@
 from django.urls import path
 
-from .views import (EstudianteListView, EstudianteCreateView,
-                    EstudianteUpdateView, DocenteListView,
-                    DocenteCreateView, DocenteUpdateView,
-                    UsuarioListView, UsuarioCreateView,
-                    UsuarioUpdateView)
+from .views import (EstudianteListaView, EstudianteCrearView,
+                    EstudianteEditarView, DocenteListaView,
+                    DocenteCrearView, DocenteEditarView,
+                    UsuarioListaView, UsuarioCrearView,
+                    UsuarioEditarView)
 
 app_name = 'usuarios'
 
 urlpatterns = [
     # Estudiantes
-    path('estudiantes', EstudianteListView.as_view(), name='estudiante-list'),
-    path('estudiantes/create/', EstudianteCreateView.as_view(),
-         name='estudiante-create'),
-    path('estudiantes/<int:pk>/update/',
-         EstudianteUpdateView.as_view(), name='estudiante-update'),
+    path('estudiantes', EstudianteListaView.as_view(), name='lista-estudiante'),
+    path('estudiantes/crear/', EstudianteCrearView.as_view(),
+         name='crear-estudiante'),
+    path('estudiantes/<int:pk>/editar/',
+         EstudianteEditarView.as_view(), name='editar-estudiante'),
     # Docentes
-    path('docentes', DocenteListView.as_view(), name='docente-list'),
-    path('docentes/create/', DocenteCreateView.as_view(), name='docente-create'),
-    path('docentes/<int:pk>/update/',
-         DocenteUpdateView.as_view(), name='docente-update'),
+    path('docentes', DocenteListaView.as_view(), name='lista-docente'),
+    path('docentes/crear/', DocenteCrearView.as_view(), name='crear-docente'),
+    path('docentes/<int:pk>/editar/',
+         DocenteEditarView.as_view(), name='editar-docente'),
     # Usuarios
-    path('usuarios', UsuarioListView.as_view(), name='usuario-list'),
-    path('usuarios/create/', UsuarioCreateView.as_view(), name='usuario-create'),
-    path('usuarios/<int:pk>/update/',
-         UsuarioUpdateView.as_view(), name='usuario-update'),
+    path('usuarios', UsuarioListaView.as_view(), name='lista-usuario'),
+    path('usuarios/crear/', UsuarioCrearView.as_view(), name='crear-usuario'),
+    path('usuarios/<int:pk>/editar/',
+         UsuarioEditarView.as_view(), name='editar-usuario'),
 ]
