@@ -1,7 +1,7 @@
 from django import forms
 from .models import *
 
-class CustomeCreationEdificioForm(forms.ModelForm):
+class EdificioCreateForm(forms.ModelForm):
     class Meta:
         
         fields = ('nombre',

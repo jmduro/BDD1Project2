@@ -1,42 +1,56 @@
 from django.shortcuts import render
 from django.views import generic
 from django.shortcuts import render, redirect, reverse
-from .forms import CustomeCreationEdificioForm
-from django.http import HttpResponse
+from .forms import (EdificioCreateForm, )
+from .models import Edificio, Salon, Salon_clasificacion
+
 
 # Create your views here.
 
-#Validar esta view para
-class EdificioView(generic.CreateView):
-    template_name = "edificio/edificioCrear.html"
-    form_class = CustomeCreationEdificioForm
+# Vistas para Edificio
+class EdificioView(generic.ListView):
+    template_name = 'edificio/edificio.html'
+    queryset = Edificio.objects.all()
+    context_object_name = 'edificio'
 
-    def get_success_url(self):
-        return reverse('edificio')
 
-def EdificioPage(request):
-    return render(request, 'edificio/edificio.html')
+class EdificioCrearView(generic.CreateView):
+    template_name = 'edificio/edificioCrear.html'
+    form_class = EdificioCreateForm
 
-def EdificioCrearPage(request):
-    return render(request, 'edificio/edificioCrear.html')
 
-def EdificioEditarPage(request):
-    return render(request, 'edificio/edificioEditar.html')
 
-def EdificioSalonesPage(request):
-    return render(request, 'edificio/salones/salones.html')
 
-def EdificioSalonesCrearPage(request):
-    return render(request, 'edificio/salones/salonesCrear.html')
+class EdificioEditarView(generic.UpdateView):
+    template_name = 'edificio/edificioEditar.html'
+    queryset = Edificio.objects.all()
+    #form_class = EdificioUpdateForm
 
-def EdificioSalonesEditarPage(request):
-    return render(request, 'edificio/salones/salonesEditar.html')
+    
 
-def EdificioSalonesClasificacionPage(request):
-    return render(request, 'edificio/salones/salonesClasificacion.html')
+# Vistas para Salon
 
-def EdificioSalonesClasificacionCrearPage(request):
-    return render(request, 'edificio/salones/salonesClasificacionCrear.html')
+class SalonesView(generic.ListView):
+    template_name = 'salones/salones.html'
+    queryset = Salon.objects.all()
+    context_object_name = 'salones'
 
-def EdificioSalonesClasificacionEditarPage(request):
-    return render(request, 'edificio/salones/salonesClasificacionEditar.html')
+
+class SalonesCrearView(generic.CreateView):
+    template_name = 'salones/salonesCrear.html'
+
+class SalonesEditarView(generic.UpdateView):
+    template_name = 'edificio/salones/salonesEditar.html'
+
+# Vistas para Clasificacion Salon
+
+class SalonesClasificacionView(generic.ListView):
+    template_name = 'clasificacion/salonesClasificacion.html'
+    queryser = Salon_clasificacion.objects.all()
+    context_object_name = 'salonesClasificacion'
+
+class SalonesClasificacionCrearView(generic.CreateView):
+    template_name = 'clasificacion/salonesClasificacionCrear.html'
+
+class SalonesClasificacionEditarView(generic.UpdateView):
+    template_name = 'clasificacion/salonesClasificacionEditar.html'

@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block title %}
-    Salon 
+    Clasificacion Salones 
 {% endblock %}
 
 {% block content %}
 
 <div class="main-content">
     <div class="initial">
-        <h1 class="title">Editar salones</h1>
+        <h1 class="title">Editar clasificación salon</h1>
     </div>
     <div class="main-button"> 
     </div>
@@ -18,14 +18,11 @@
         Forms salones Editar:
         Nombre
         Habilitado
-        capacidad
-        Clasificacion
-        Boton + de crear clasificación
-        <a  href="{% url 'edificios:salon_clasificacion_crear' %}"><button>+</button></a>
+        Boton de guardar (submit)
     </div>
 
     <div class="final">
-    <a  href="{% url 'edificios:edificio_salones' %}"><button>Regresar</button></a>
+    <a  href="{% url 'edificios:clasificacionSalones' %}"><button>Regresar</button></a>
     </div>
 </div>
 

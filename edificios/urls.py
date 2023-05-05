@@ -1,29 +1,30 @@
 from django.urls import path
-from .views import (EdificioPage, EdificioCrearPage, EdificioEditarPage,
-                    EdificioSalonesPage, EdificioSalonesCrearPage, EdificioSalonesEditarPage,
-                    EdificioSalonesClasificacionPage, EdificioSalonesClasificacionCrearPage, 
-                    EdificioSalonesClasificacionEditarPage, EdificioView)
+from .views import (EdificioView, EdificioCrearView, EdificioEditarView,
+                    SalonesView, SalonesCrearView, SalonesEditarView,
+                    SalonesClasificacionView, SalonesClasificacionCrearView, 
+                    SalonesClasificacionEditarView)
 
 
 app_name = 'edificios'
 
 urlpatterns = [
     #Edificios
-    path('', EdificioPage, name='edificio_page'),
-    path('crear/', EdificioCrearPage, name='edificio_crear'),
-    path('editar/', EdificioEditarPage, name='edificio_editar'),
+    path('', EdificioView.as_view(), name='edificio'),
+    path('crear/', EdificioCrearView.as_view(), name='edificio_crear'),
+    path('editar/', EdificioEditarView.as_view(), name='edificio_editar'),
     #Salones
-    path('salones/', EdificioSalonesPage, name='edificio_salones'),
-    path('salones/crear/', EdificioSalonesCrearPage,
-         name='edificio_salones_crear'),
-    path('salones/editar/', EdificioSalonesEditarPage,
-         name='edificio_salones_editar'),
+    path('salones/', SalonesView.as_view(), name='salones'),
+    path('salones/crear/', SalonesCrearView.as_view(),
+         name='salones_crear'),
+    path('salones/editar/', SalonesEditarView.as_view(),
+         name='salones_editar'),
     #Clasificación de salones
-    path('salones/clasificacion', EdificioSalonesClasificacionPage,
-         name='edificio_clasificacionSalones'),
+    path('salones/clasificacion', SalonesClasificacionView.as_view(),
+         name='clasificacionSalones'),
     path('salones/clasificacion/crear/',
-         EdificioSalonesClasificacionCrearPage, name='salon_clasificacion_crear'),
+         SalonesClasificacionCrearView.as_view(), name='salon_clasificacion_crear'),
     path('salones/clasificacion/editar/',
-         EdificioSalonesClasificacionEditarPage, name='salon_clasificacion_editar'),
+         SalonesClasificacionEditarView.as_view(), name='salon_clasificacion_editar'),
+         
     ]
 
