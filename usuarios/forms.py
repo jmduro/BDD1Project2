@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estudiante, Docente
+from .models import Estudiante, Docente, Usuario
 
 
 class EstudianteCreateModelForm(forms.ModelForm):
@@ -72,5 +72,36 @@ class DocenteUpdateModelForm(forms.ModelForm):
             'telefono',
             'num_personal',
             # 'docente_titular',
+            'habilitado'
+        )
+
+
+class UsuarioCreateModelForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = (
+            'nombres',
+            'apellidos',
+            'profesion',
+            'acronimo',
+            'correo_electronico',
+            'cui',
+            'telefono',
+            'num_personal',
+        )
+
+
+class UsuarioUpdateModelForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = (
+            'nombres',
+            'apellidos',
+            'profesion',
+            'acronimo',
+            'correo_electronico',
+            'cui',
+            'telefono',
+            'num_personal',
             'habilitado'
         )

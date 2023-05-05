@@ -3,9 +3,10 @@ from django.shortcuts import render, reverse
 from django.views import generic
 from django.contrib.auth import get_user_model
 
-from .models import Estudiante, Docente
+from .models import Estudiante, Docente, Usuario
 from .forms import (EstudianteCreateModelForm, EstudianteUpdateModelForm,
-                    DocenteCreateModelForm, DocenteUpdateModelForm)
+                    DocenteCreateModelForm, DocenteUpdateModelForm,
+                    UsuarioCreateModelForm, UsuarioUpdateModelForm)
 from .util import generate_password
 
 
@@ -32,9 +33,9 @@ class EstudianteCreateView(generic.CreateView):
         nuevo_estudiante = form.save(commit=False)
         usuario = nuevo_estudiante.carnet
         password = self.get_context_data()['password']
-        nuevo_usuario = UsuarioAutenticable.objects.create(
+        nuevo_usuario_autenticable = UsuarioAutenticable.objects.create(
             username=usuario, password=password)
-        nuevo_estudiante.usuario_id = nuevo_usuario.id
+        nuevo_estudiante.usuario_id = nuevo_usuario_autenticable.id
         nuevo_estudiante.save()
         return super(EstudianteCreateView, self).form_valid(form)
 
@@ -75,9 +76,9 @@ class DocenteCreateView(generic.CreateView):
         nuevo_docente = form.save(commit=False)
         usuario = nuevo_docente.cui
         password = self.get_context_data()['password']
-        nuevo_usuario = UsuarioAutenticable.objects.create(
+        nuevo_usuario_autenticable = UsuarioAutenticable.objects.create(
             username=usuario, password=password)
-        nuevo_docente.usuario_id = nuevo_usuario.id
+        nuevo_docente.usuario_id = nuevo_usuario_autenticable.id
         nuevo_docente.save()
         return super(DocenteCreateView, self).form_valid(form)
 
@@ -99,3 +100,42 @@ class DocenteUpdateView(generic.UpdateView):
 
 # -------------------------------------------------------------------
 # -----> Vistas módulo Usuarios
+
+
+class UsuarioListView(generic.ListView):
+    template_name = 'usuarios/usuario_list.html'
+    queryset = Usuario.objects.all()
+    context_object_name = 'usuarios'
+
+
+class UsuarioCreateView(generic.CreateView):
+    template_name = 'usuarios/usuario_create.html'
+    form_class = UsuarioCreateModelForm
+
+    def get_success_url(self):
+        return reverse('usuarios:usuario-list')
+
+    def form_valid(self, form):
+        nuevo_usuario = form.save(commit=False)
+        usuario = nuevo_usuario.cui
+        password = self.get_context_data()['password']
+        nuevo_usuario_autenticable = UsuarioAutenticable.objects.create(
+            username=usuario, password=password)
+        nuevo_usuario.usuario_id = nuevo_usuario_autenticable.id
+        nuevo_usuario.save()
+        return super(UsuarioCreateView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs: Any):
+        context = super().get_context_data(**kwargs)
+        password = generate_password()
+        context.update({'password': password})
+        return context
+
+
+class UsuarioUpdateView(generic.UpdateView):
+    template_name = 'usuarios/usuario_update.html'
+    queryset = Usuario.objects.all()
+    form_class = UsuarioUpdateModelForm
+
+    def get_success_url(self):
+        return reverse('usuarios:usuario-list')

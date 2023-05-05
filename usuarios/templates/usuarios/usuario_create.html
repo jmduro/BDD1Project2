@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block title %}
-Registro de docentes
+Registro de usuarios
 {% endblock title %}
 
 {% block content %}
 
 <div class="logContent">
-    <a href="{% url 'usuarios:docente-list' %}">Cancelar</a>
+    <a href="{% url 'usuarios:usuario-list' %}">Cancelar</a>
     <hr>
-    <h1>Registro de docentes</h1>
+    <h1>Registro de usuarios</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
