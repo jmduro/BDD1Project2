@@ -80,7 +80,7 @@ class SalonesEditarView(generic.UpdateView):
 class SalonesClasificacionView(generic.ListView):
     template_name = 'clasificacion/salonesClasificacion.html'
     queryset = Salon_clasificacion.objects.all()
-    context_object_name = 'clasificacionSalones'
+    context_object_name = 'clasificacionSalon'
 
 class SalonesClasificacionCrearView(generic.CreateView):
     template_name = 'clasificacion/salonesClasificacionCrear.html'

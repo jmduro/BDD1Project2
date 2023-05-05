@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Clasificacion Salon 
+Clasificacion Salon 
 {% endblock %}
 
 {% block content %}
@@ -11,17 +11,28 @@
     <div class="initial">
         <h1 class="title">Listado de clasificación salones</h1>
     </div>
-    <div class="main-button"> 
-        <a  href="{% url 'edificios:salon_clasificacion_crear' %}"><button>Nueva clasificación</button></a>
-    </div>
-
     <div class="main-box">
-        tabla con las clasificaciones
-        <a  href="{% url 'edificios:salon_clasificacion_editar' %}"><button>Editar</button></a>
-    </div>
-
-    <div class="final">
-    <a  href="{% url 'edificios:salones' %}"><button>Regresar</button></a>
+        <table class="main-table">
+            <br>
+            <a href="{% url 'edificios:salon_clasificacion_crear' %}"><button class="logbtn">Nueva clasificación</button></a>
+            <br>
+            <tr>
+                <th>Nombre clasificacion</th>
+                <th>Opciones</th>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>
+                    <ul>
+                        <li><a href="{% url 'edificios:salon_clasificacion_editar'  %}">Editar</a></li>
+                    </ul>
+                </td>
+            </tr>
+            
+        </table>
+        <br>
+        <a  href="{% url 'edificios:salones' %}"><button class="logbtn">Regresar</button></a>
     </div>
 </div>
 
