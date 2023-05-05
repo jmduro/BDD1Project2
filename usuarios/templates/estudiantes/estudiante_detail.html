@@ -1,0 +1,15 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+Crear estudiante
+{% endblock title %}
+
+{% block content %}
+
+<div class="logContent">
+    <a href="{% url 'estudiantes:estudiante-list' %}">Volver a la lista de estudiantes</a>
+    <hr>
+    <h1>Detalles de {{ estudiante.nombres }}</h1>
+</div>
+
+{% endblock content %}
