@@ -6,16 +6,16 @@ class EstudianteCreateModelForm(forms.ModelForm):
     class Meta:
         model = Estudiante
         fields = (
-            'tipo_documento',
+            # 'tipo_documento',
             'num_identificacion',
             'nombres',
             'apellidos',
             'carnet',
-            'pais',
+            # 'pais',
             'telefono',
             'fecha_nacimiento',
             'correo_electronico',
-            'certificacion_nacimiento',
+            # 'certificacion_nacimiento',
         )
 
 
@@ -23,15 +23,15 @@ class EstudianteUpdateModelForm(forms.ModelForm):
     class Meta:
         model = Estudiante
         fields = (
-            'tipo_documento',
+            # 'tipo_documento',
             'num_identificacion',
             'nombres',
             'apellidos',
             'carnet',
-            'pais',
+            # 'pais',
             'telefono',
             'fecha_nacimiento',
             'correo_electronico',
-            'certificacion_nacimiento',
+            # 'certificacion_nacimiento',
             'habilitado'
         )
