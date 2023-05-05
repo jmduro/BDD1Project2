@@ -1,0 +1,36 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Cursos 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de cursos</h1>
+    </div>
+    <div class="main-box">
+        <table class="main-table">
+            <br>
+            <a  href="{% url 'pensum:crear_curso' %}"><button class="logbtn">Crear curso</button></a>
+            <br>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Opciones</th>
+            </tr>
+            {% for curso in cursos %}
+            <tr>
+              <td>{{ curso.codigo }}</td>
+              <td>{{ curso.nombre }}</td>
+              <td><a href="{% url 'pensum:editar_curso' curso.pk%}">Editar</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        <ul>
+    </div>
+</div>
+
+{% endblock %}
