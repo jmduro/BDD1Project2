@@ -1,0 +1,21 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Edificio 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Editar edificio</h1>
+    </div>
+    <div class="main-box">
+        forms editar, cargar datos,
+    </div>
+    
+    <a  href="{% url 'edificio_page' %}"><button>Regresar</button></a>
+</div>
+
+{% endblock %}

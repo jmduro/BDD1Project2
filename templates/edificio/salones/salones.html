@@ -1,0 +1,32 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Salon 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de salones</h1>
+    </div>
+    <div class="main-button"> 
+        Nombre
+        <a  href="#"><button>buscar</button></a>
+        <a  href="{% url 'edificio_clasificacionSalones' %}"><button>Clasificación</button></a>
+        <a  href="{% url 'edificio_salones_crear' %}"><button>Crear</button></a>
+        
+    </div>
+
+    <div class="main-box">
+    tabla
+        <a  href="{% url 'edificio_salones_editar' %}"><button>Editar</button></a>
+    </div>
+
+    <div class="final">
+    <a  href="{% url 'edificio_page' %}"><button>Regresar</button></a>
+    </div>
+</div>
+
+{% endblock %}
