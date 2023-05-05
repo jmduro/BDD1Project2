@@ -1,6 +1,7 @@
 from django import forms
 from .models import Carrera, Curso, Pensum
 
+
 class CarreraModelForm(forms.ModelForm):
     class Meta:
         model = Carrera
@@ -12,10 +13,11 @@ class CarreraModelForm(forms.ModelForm):
             'ciclo_academico',
             'grado_academico',
             'jornada',
-            #'encargado_area',
-            #'coordinador_academico',
+            'encargado_area',
+            'coordinador_academico',
             'habilitado',
         )
+
 
 class CursoModelForm(forms.ModelForm):
     class Meta:
@@ -32,6 +34,7 @@ class CursoModelForm(forms.ModelForm):
             'habilitado',
         )
 
+
 class PensumModelForm(forms.ModelForm):
     class Meta:
         model = Pensum
@@ -42,6 +45,6 @@ class PensumModelForm(forms.ModelForm):
             'proceso',
             'ciclos',
             'examen',
+            'carrera',
             'habilitado',
-            'carrera', 
         )
