@@ -49,8 +49,10 @@ class Curso(models.Model):
     horas_lab = models.IntegerField(default=0)
     semestres = models.IntegerField(default=2)
     habilitado = models.BooleanField(default=True)
-
-
+    
+    def __str__(self):
+        return f"{self.nombre}"
+    
 class Pensum(models.Model):
     codigo = models.CharField(max_length=4)
     inicio = models.IntegerField(default=2023)
@@ -60,3 +62,25 @@ class Pensum(models.Model):
     examen = models.IntegerField(default=100)
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
     habilitado = models.BooleanField(default=True)
+    def __str__(self):
+        return f"{self.codigo}"
+
+class Ciclo(models.Model):
+    pensum = models.ForeignKey(Pensum, on_delete=models.CASCADE)
+    ciclo = models.CharField(max_length=25)
+
+    def __str__(self):
+        return f"{self.ciclo}"
+    
+
+
+class CursoPensum(models.Model):
+    ciclo = models.ForeignKey(Ciclo, on_delete=models.CASCADE)
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name='nombre_curso')
+    creditos = models.IntegerField(default=4)
+    obligatorio = models.BooleanField(default=True)
+    curso_prerrequisito = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name='curso_prerrequisito')
+    creditos_prerrequisito = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.curso}"
