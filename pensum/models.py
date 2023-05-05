@@ -30,9 +30,9 @@ class Carrera(models.Model):
     grado_academico = models.CharField(choices=grados, max_length=100)
     jornada = models.CharField(choices=planes, max_length=100)
     encargado_area = models.ForeignKey(
-        'usuarios.Docente', on_delete=models.CASCADE)
+        'usuarios.Docente', on_delete=models.SET_NULL, null=True, related_name='%(class)s_encargado_area')
     coordinador_academico = models.ForeignKey(
-        'usuarios.Docente', on_delete=models.CASCADE)
+        'usuarios.Docente', on_delete=models.SET_NULL, null=True, related_name='%(class)s_coordinador_academico')
     habilitado = models.BooleanField(default=True)
 
     def __str__(self):
