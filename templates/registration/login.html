@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Login</h1>
+    </div>
+</div>
+
+<!--Contenido de la pagina del indice.-->
+<div class="logContent">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a><button class="logbtn" type="submit">Login</button></a>
+    </form>
+    <a href="{% url 'signup' %}"><button class="logbtn">Signup</button></a>
+    <hr>
+    <a href="{% url 'reset-password' %}">Se te olvido la password?</a>
+</div>
+
+{% endblock %}

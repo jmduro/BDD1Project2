@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+Inicio
+{% endblock %}
+
+{% block content %}
+<div id="landing">
+    <div class="main-content">
+        <div class="tk-wrapper">
+            <div class="left-column">
+                <img id="landing-logo" src="{% static 'images/usaclogo.png' %}">
+            </div>
+            <div class="right-column">
+                <div id="landing-buttons">
+                    <h1>Control Académico</h1><br>
+                    <h3>Sistema de control de cargas académicas.</h3>
+                    <br>
+                    <p>Centro Universitario del Norte</p>
+                    <p>CUNOR, A.V.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
