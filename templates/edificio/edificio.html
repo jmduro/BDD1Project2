@@ -11,8 +11,13 @@
     <div class="initial">
         <h1 class="title">Adminsitración de edificios</h1>
     </div>
+    <div class="main-button"> 
+        <a  href="{% url 'edificio_crear' %}"><button>Crear</button></a>
+    </div>
+
     <div class="main-box">
-        
+        <a  href="{% url 'edificio_editar' %}"><button>Editar</button></a>
+        <a  href="{% url 'edificio_salones' %}"><button>Administrar salones</button></a>
     </div>
 </div>
 
