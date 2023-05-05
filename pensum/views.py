@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 
 from .models import Curso, Carrera, Pensum
 from .forms import CarreraModelForm, CursoModelForm, PensumModelForm
@@ -98,21 +98,21 @@ def crear_pensum(request):
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return redirect("/carrera")
+            return redirect("/inicio/pensum/carrera")
     context = {
         "form": PensumModelForm()
     }
     return render(request, "pensum/crear_pensum.html", context)
 
 def editar_pensum(request, pk):
-    pensum = Pensum.objects.get(carrera=pk)
+    pensum = Pensum.objects.get(id=pk)
     form = PensumModelForm(instance=pensum)
     if request.method == "POST":
         form = PensumModelForm(request.POST, instance=pensum)
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return redirect("/carrera")
+            return redirect("/inicio/pensum/carrera")
     context = {
         "form" : form,
         "pensum" : pensum

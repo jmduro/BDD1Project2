@@ -56,5 +56,6 @@ class Pensum(models.Model):
     proceso = models.CharField(max_length=250)
     ciclos = models.IntegerField(default=2)
     examen = models.IntegerField(default=100)
+    habilitado = models.BooleanField(default=True)
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE)
 

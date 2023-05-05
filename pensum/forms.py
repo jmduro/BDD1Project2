@@ -42,5 +42,6 @@ class PensumModelForm(forms.ModelForm):
             'proceso',
             'ciclos',
             'examen',
+            'habilitado',
             'carrera', 
         )
