@@ -14,16 +14,11 @@ UsuarioAutenticable = get_user_model()
 # -------------------------------------------------------------------
 # -----> Vistas módulo Estudiantes
 
+
 class EstudianteListView(generic.ListView):
     template_name = 'estudiantes/estudiante_list.html'
     queryset = Estudiante.objects.all()
     context_object_name = 'estudiantes'
-
-
-class EstudianteDetailView(generic.DetailView):
-    template_name = 'estudiantes/estudiante_detail.html'
-    queryset = Estudiante.objects.all()
-    context_object_name = 'estudiante'
 
 
 class EstudianteCreateView(generic.CreateView):
@@ -59,26 +54,14 @@ class EstudianteUpdateView(generic.UpdateView):
         return reverse('usuarios:estudiante-list')
 
 
-class EstudianteDeleteView(generic.DeleteView):
-    template_name = 'estudiantes/estudiante_delete.html'
-    queryset = Estudiante.objects.all()
-
-    def get_success_url(self):
-        return reverse('usuarios:estudiante-list')
-
 # -------------------------------------------------------------------
 # -----> Vistas módulo Docentes
+
 
 class DocenteListView(generic.ListView):
     template_name = 'docentes/docente_list.html'
     queryset = Docente.objects.all()
     context_object_name = 'docentes'
-
-
-class DocenteDetailView(generic.DetailView):
-    template_name = 'docentes/docente_detail.html'
-    queryset = Docente.objects.all()
-    context_object_name = 'docente'
 
 
 class DocenteCreateView(generic.CreateView):
@@ -113,13 +96,6 @@ class DocenteUpdateView(generic.UpdateView):
     def get_success_url(self):
         return reverse('usuarios:docente-list')
 
-
-class DocenteDeleteView(generic.DeleteView):
-    template_name = 'docentes/docente_delete.html'
-    queryset = Docente.objects.all()
-
-    def get_success_url(self):
-        return reverse('usuarios:docente-list')
 
 # -------------------------------------------------------------------
 # -----> Vistas módulo Usuarios
