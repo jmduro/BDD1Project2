@@ -1,0 +1,43 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Carreras 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de carreras</h1>
+    </div>
+    <div class="main-box">
+        <table class="main-table">
+            <br>
+            <a  href="{% url 'pensum:crear_carrera' %}"><button class="logbtn">Crear carrera</button></a>
+            <br>
+            <tr>
+              <th>Nombre de carrera</th>
+              <th>Encargado</th>
+              <th>Opciones</th>
+            </tr>
+            {% for carrera in carreras %}
+            <tr>
+              <td>{{ carrera.nombre }}</td>
+              <td>X</td>
+              <td>
+                <ul>
+                    <li><a href="{% url 'pensum:editar_carrera' carrera.pk %}">Editar</a></li>
+                    <li><a href="{% url 'pensum:pensum' carrera.pk %}">Administrar pensum</a></li>
+                    <li><a href="#">Cargas académicas</a></li>
+                </ul>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        <ul>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Login',
     'usuarios',
     'edificios',
+    'pensum'
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
 }
 
 
