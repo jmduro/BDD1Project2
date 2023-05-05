@@ -118,7 +118,7 @@ header {
     height: 100%;
     background-color: var(--darkerColor);
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 5px 10%;
 }
@@ -141,6 +141,7 @@ header {
     height: 50px;
     object-fit: cover;
     margin-right: auto;
+    margin-left: 0;
 }
 
 .nav_links {
