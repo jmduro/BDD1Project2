@@ -2,27 +2,28 @@
 {% load static %}
 
 {% block title %}
-    Password
+    Roles 
 {% endblock %}
 
 {% block content %}
 
 <div class="main-content">
     <div class="initial">
-        <h1 class="title">Cambiar contraseña</h1>
-        </div>
+        <h1 class="title">Editar Rol</h1>
+  
     </div>
 </div>
 
 <!--Contenido de la pagina del indice.-->
 <div class="logContent">
-    <!--
+    
     <form method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <button class="submitbtn" type="submit">Login</button>
+    
+    <a><button class="logbtn" type="submit">Actualizar</button></a>
     </form>
-    -->
+    <a href="{% url 'roles'%}"><button class="logbtn" >Regresar</button></a>
 </div>
 
-{% endblock %}
+{%endblock%}

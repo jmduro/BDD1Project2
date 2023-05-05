@@ -209,6 +209,9 @@ header {
     border-radius: 10px;
 }
 
+
+
+
 .main-box{
     padding: 5px;
     border-radius: 10px;
@@ -218,6 +221,9 @@ header {
     align-content: center;
     text-align: center;
 }
+
+
+
 
 footer {
     background-color: var(--darkerColor);

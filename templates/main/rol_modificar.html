@@ -2,14 +2,15 @@
 {% load static %}
 
 {% block title %}
-    Login
+    Roles 
 {% endblock %}
 
 {% block content %}
 
 <div class="main-content">
     <div class="initial">
-        <h1 class="title">Confirmar nueva Password</h1>
+        <h1 class="title">Modificar Rol</h1>
+       
     </div>
 </div>
 
@@ -20,8 +21,9 @@
     {% csrf_token %}
     {{form.as_p}}
     
-    <a><button class="logbtn" type="submit">Confirmar</button></a>
+    <a><button class="logbtn" type="submit">Actualizar</button></a>
     </form>
+    <a href="{% url 'roles'%}"><button class="logbtn" >Regresar</button></a>
 </div>
 
 {%endblock%}

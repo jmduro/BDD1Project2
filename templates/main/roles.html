@@ -1,0 +1,49 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Roles 
+{% endblock %}
+
+{% block content %}
+
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de roles</h1>
+    </div>
+    <div class="main-box">
+        <style>
+
+            table, th, td {
+                border: 1px solid black;
+              }
+
+              table {
+                background-color: white;
+                border: 1px solid black;
+              }
+            </style>
+            <a  href="{% url 'create_rol'%}"><button class="logbtn" >Crear Rol</button></a>
+        <table>
+            <tr>
+              <th>Rol</th>
+              <th>Descripcion</th>
+              <th>Habilitado</th>
+              <th>Opcion</th>
+            </tr>
+
+            {% for rol in roles %}
+            <tr>
+              <td>{{rol.nombre}}</td>
+              <td>{{rol.descripcion}}</td>
+              <td>{{rol.habilitado}}</td>
+              <td><a href="/roles/{{rol.pk}}/editar/" style="color: blue;">Editar</a> | <a href="/roles/{{rol.pk}}/modificar/" style="color: blue;">Modificar</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+          <a href="{% url 'inicio'%}"><button class="logbtn" >Regresar</button></a>
+    </div>
+</div>
+
+{% endblock %}

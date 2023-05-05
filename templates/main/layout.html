@@ -55,8 +55,10 @@
                 <li><a href="#">Seguridad ▾</a>
                     <ul>
                         <li><a href="{% url 'logout'%}">Cerrar Sesión</a></li>
-                        <li><a href="#">Cambiar contraseña</a></li>
-                        <li><a href="#">Administración de roles y permisos</a></li>
+                        <li><a href="{% url 'reset-password'%}">Cambiar contraseña</a></li>
+                        {% if user.is_superuser %}
+                        <li><a href="{% url 'roles'%}">Administración de roles y permisos</a></li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>
