@@ -20,16 +20,16 @@ Clasificacion Salon
                 <th>Nombre clasificacion</th>
                 <th>Opciones</th>
             </tr>
-            
+            {% for clasalon in clasificacionSalones %}
             <tr>
-                <td></td>
+                <td>{{ clasalon.nombre }}</td>
                 <td>
                     <ul>
-                        <li><a href="{% url 'edificios:salon_clasificacion_editar'  %}">Editar</a></li>
+                        <li><a href="{% url 'edificios:salon_clasificacion_editar' clasalon.pk %}">Editar</a></li>
                     </ul>
                 </td>
             </tr>
-            
+            {% endfor %}
         </table>
         <br>
         <a  href="{% url 'edificios:salones' %}"><button class="logbtn">Regresar</button></a>

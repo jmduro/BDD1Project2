@@ -24,17 +24,17 @@
                 <th>edificio</th>
                 <th>Opciones</th>
             </tr>
-            
+            {% for salon in salones %}
             <tr>
-                <td></td>
-                <td></td>
+                <td>{{ salon.nombre }}</td>
+                <td>{{ salon.edificio }}</td>
                 <td>
                     <ul>
-                        <li><a href="{% url 'edificios:salones_editar'  %}">Editar</a></li>
+                        <li><a href="{% url 'edificios:salones_editar' salon.pk %}">Editar</a></li>
                     </ul>
                 </td>
             </tr>
-            
+            {% endfor %}
         </table>
         <br>
         <a  href="{% url 'edificios:edificio' %}"><button class="logbtn">Regresar</button></a>

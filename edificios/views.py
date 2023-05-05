@@ -16,7 +16,7 @@ from .models import Edificio, Salon, Salon_clasificacion
 class EdificioView(generic.ListView):
     template_name = 'edificio/edificio.html'
     queryset = Edificio.objects.all()
-    context_object_name = 'edificio'
+    context_object_name = 'edificios'
 
 
 class EdificioCrearView(generic.CreateView):
@@ -80,7 +80,7 @@ class SalonesEditarView(generic.UpdateView):
 class SalonesClasificacionView(generic.ListView):
     template_name = 'clasificacion/salonesClasificacion.html'
     queryset = Salon_clasificacion.objects.all()
-    context_object_name = 'clasificacionSalon'
+    context_object_name = 'clasificacionSalones'
 
 class SalonesClasificacionCrearView(generic.CreateView):
     template_name = 'clasificacion/salonesClasificacionCrear.html'

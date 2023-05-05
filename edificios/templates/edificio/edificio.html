@@ -12,7 +12,7 @@
         <h1 class="title">Adminsitración de edificios</h1>
     </div>
     <div class="main-box">
-    <table class="main-table">
+        <table class="main-table">
             <br>
             <a  href="{% url 'edificios:edificio_crear' %}"><button class="logbtn">Crear</button></a>
             <br>
@@ -22,18 +22,18 @@
                 <th>fecha de creacion</th>
                 <th>Opciones</th>
             </tr>
-            
+            {% for edificio in edificios %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ edificio.nombre }}</td>
+                <td>{{ edificio.cantidad }}</td>
+                <td>{{ edificio.fecha_creacion }}</td>
                 <td>
                     <ul>
-                        <li><a href="{% url 'edificios:edificio_editar'  %}">Editar</a> | <a href="{% url 'edificios:salones'  %}">Administrar salones</a></li>
+                        <li><a href="{% url 'edificios:edificio_editar' edificio.pk %}">Editar</a> | <a href="{% url 'edificios:salones'  %}">Administrar salones</a></li>
                     </ul>
                 </td>
             </tr>
-            
+            {% endfor %}
         </table>
         <br>
     </div>
