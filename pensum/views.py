@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .models import Curso, Carrera, Pensum
-from .forms import CarreraModelForm, CursoModelForm, PensumModelForm
+from .models import Curso, Carrera, Pensum, Ciclo, CursoPensum
+from .forms import CarreraModelForm, CursoModelForm, PensumModelForm, CicloModelForm, CursoPensumModelForm
 
 #--------- ESPACIO DE CARRERAS ---------
 
@@ -118,3 +118,52 @@ def editar_pensum(request, pk):
         "pensum" : pensum
     }
     return render(request, "pensum/editar_pensum.html", context)
+
+
+#--------- ESPACIO DE CICLOS ---------
+def ciclo(request, pk):
+    pensum = Pensum.objects.get(id=pk)
+    ciclo = Ciclo.objects.filter(pensum=pensum.pk)
+    context = {
+        "pensum" : pensum,
+        "ciclo" : ciclo
+    }
+    return render(request, "pensum/ciclo.html", context)
+
+
+def crear_ciclo(request):
+    form = CicloModelForm()
+    if request.method == "POST":
+        form = CicloModelForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            form.save()
+            return redirect("/inicio/pensum/carrera")
+    context = {
+        "form": CicloModelForm()
+    }
+    return render(request, "pensum/crear_ciclo.html", context)
+
+
+#--------- ESPACIO DE CURSOS PARA PENSUM ---------
+def curso_pensum(request, pk):
+    ciclo = Ciclo.objects.get(id=pk)
+    curso_pensum = CursoPensum.objects.filter(ciclo=ciclo.pk)
+    context = {
+        "ciclo" : ciclo,
+        "curso_pensum" : curso_pensum
+    }
+    return render(request, "pensum/curso_pensum.html", context)
+
+def agregar_curso(request):
+    form = CursoPensumModelForm()
+    if request.method == "POST":
+        form = CursoPensumModelForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            form.save()
+            return redirect("/inicio/pensum/carrera")
+    context = {
+        "form": CursoPensumModelForm()
+    }
+    return render(request, "pensum/agregar_curso.html", context)
