@@ -11,24 +11,29 @@
         {% endblock %}
         | CUNOR
     </title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 </head>
 
 <body>
+
+    <!-- Barra superior -->
     <div class="nav_info">
         <img id="logo" src="{% static 'images/usaclogo.png' %}">
         <ul class="infohead">
             <li>PBX (502) 7956 6600 / Extension: 206</li>
             <li>coordinacionacademica@cunor.edu.gt</li>
         </ul>
-
-    
     </div>
+
+    <!-- Navbar -->
     <header>
-        {%if request.user.is_authenticated%}
+        {% if request.user.is_authenticated %}
         <nav>
             <ul class="nav_links">
-                <li><a>Conectado como: {{request.user.username}}</a></li>
+                <li><a>Conectado como: {{ request.user.username }}</a></li>
                 <li><a href="#">Cargas ▾</a>
                     <ul>
                         <li><a href="#">Validación de cargas académicas</a></li>
@@ -47,17 +52,17 @@
                 </li>
                 <li><a href="#">Usuarios ▾</a>
                     <ul>
-                        <li><a href="#">Adminsitración de estudiantes</a></li>
-                        <li><a href="#">Administración de docentes</a></li>
-                        <li><a href="#">Administración de usuarios</a></li>
+                        <li><a href="{% url 'usuarios:estudiante-list' %}">Administración de estudiantes</a></li>
+                        <li><a href="{% url 'usuarios:docente-list' %}">Administración de docentes</a></li>
+                        <li><a href="{% url 'usuarios:usuario-list' %}">Administración de usuarios</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Seguridad ▾</a>
                     <ul>
-                        <li><a href="{% url 'logout'%}">Cerrar Sesión</a></li>
-                        <li><a href="{% url 'reset-password'%}">Cambiar contraseña</a></li>
+                        <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                        <li><a href="{% url 'reset-password' %}">Cambiar contraseña</a></li>
                         {% if user.is_superuser %}
-                        <li><a href="{% url 'roles'%}">Administración de roles y permisos</a></li>
+                        <li><a href="{% url 'roles' %}">Administración de roles y permisos</a></li>
                         {% endif %}
                     </ul>
                 </li>
@@ -65,9 +70,12 @@
         </nav>
         {% endif %}
     </header>
-    
-        {% block content %}
-        {% endblock %}
+
+    <!-- Contenido -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
     <footer>
         <p>PBX: +502 7956 6600</p>
         <p>Correo: informacion@cunor.edu.gt</p>
@@ -80,6 +88,7 @@
         <br>
         <p>&copy; Grupo 1 - Bases de Datos 1 | CUNOR</p>
     </footer>
+
 </body>
 
 </html>

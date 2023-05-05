@@ -1,41 +1,40 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UsernameField
-from .models import Rol
 
-User= get_user_model()
-class CustomeCreationUserForm(UserCreationForm):
-    class Meta: 
-        model = User
-        fields= ("username",
-                'nombre',
-                'apellido',
-                'correo',
-                'telefono',
-        )
-        field_classes={'username':UsernameField}
+Usuario = get_user_model()
+
+
+class CustomCreationUserForm(UserCreationForm):
+    class Meta:
+        model = Usuario
+        fields = ('username',)
+        field_classes = {'username': UsernameField}
+
 
 class RolForm(forms.ModelForm):
     class Meta:
         model = Rol
-        fields=(
+        fields = (
             'nombre',
             'descripcion',
         )
 
+
 class RolForm2(forms.ModelForm):
     class Meta:
         model = Rol
-        fields=(
+        fields = (
             'nombre',
             'descripcion',
             'habilitado'
         )
 
+
 class RolForm3(forms.ModelForm):
     class Meta:
         model = Rol
-        fields=(
+        fields = (
             'administrar_carreras',
             'administrar_cursos',
             'administrar_estudiantes',
@@ -45,4 +44,3 @@ class RolForm3(forms.ModelForm):
             'administrar_roles_y_permisos',
             'administracion_de_edificios_y_salones'
         )
-

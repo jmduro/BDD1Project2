@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Login',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -120,17 +121,19 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
-
-MEDIA_URL='/media/'
-MEDIA_ROOT='media_root'
 STATIC_ROOT= "static_root"
-AUTH_USER_MODEL = 'Login.User'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL='inicio/'
+
+
+# Constantes adicionales
+
+AUTH_USER_MODEL = 'Login.UsuarioAutenticable'
+LOGIN_REDIRECT_URL = 'inicio/'
 LOGOUT_REDIRECT_URL = 'login'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_USE_TLS = False

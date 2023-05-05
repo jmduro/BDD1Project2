@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Rol
+from .models import UsuarioAutenticable, Rol
 
-admin.site.register(User)
+admin.site.register(UsuarioAutenticable)
 admin.site.register(Rol)

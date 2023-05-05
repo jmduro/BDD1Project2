@@ -1,0 +1,22 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}
+Editar usuario
+{% endblock title %}
+
+{% block content %}
+
+<div class="logContent">
+    <a href="{% url 'usuarios:usuario-list' %}">Cancelar</a>
+    <hr>
+    <h1>Editar usuario</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="logbtn" type="submit">Guardar</button>
+    </form>
+</div>
+<script src="{% static 'js/calendario.js' %}"></script>
+
+{% endblock content %}
