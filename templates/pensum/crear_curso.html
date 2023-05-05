@@ -1,0 +1,26 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Crear cursos 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Crear curso</h1>
+    </div>
+    <div class="main-box">
+        <br>
+        <a  href="{% url 'pensum:curso' %}"><button class="logbtn">Regresar</button></a>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="logbtn" type="submit">Crear curso</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

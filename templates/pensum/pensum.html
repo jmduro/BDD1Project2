@@ -1,0 +1,39 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Pensum 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de pensum</h1>
+    </div>
+    <h2>{{ carrera.nombre }}</h2>
+    <div class="main-box">
+        <table class="main-table">
+            <br>
+            <a  href="{% url 'pensum:crear_pensum' %}"><button class="logbtn">Crear curso</button></a>
+            <br>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Opciones</th>
+            </tr>
+            {% for pen in pensum %}
+            <tr>
+              <td>{{ pen.codigo }}</td>
+              <td>{{ pen.inicio }}</td>
+              <td>{{ pen.creacion }}</td>
+              <td><a href="{% url 'pensum:editar_pensum' pensum.pk %}">Editar</a></td>
+              <td><a href="#">Administrar cursos</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        <ul>
+    </div>
+</div>
+
+{% endblock %}

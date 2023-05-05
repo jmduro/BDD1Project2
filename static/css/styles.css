@@ -22,7 +22,7 @@
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6, strong{
+h1, h2, h3, h4, h5, h6, strong, label{
     color: var(--mainColor);
 }
 
@@ -49,14 +49,30 @@ button {
 }
 
 form {
-    width: 95%;
+    width: 100%;
     padding: 5px;
     padding-left: 0px;
+    display: block;
+    justify-content: start;
+}
+
+
+form p{
+    width: 100%;
+    align-items: start;
+    justify-content: start;
+    margin-left: 0px;
+}
+
+form p>label{
+    font-size: large;
+    margin-left: 20px;
+    float: left;
 }
 
 form input,
 form textarea {
-    width: 100%;
+    width: 95%;
     color: #11131b;
     margin: 5px;
     border-radius: 4px;
@@ -68,23 +84,15 @@ form textarea {
     margin-bottom: 10px;
 }
 
-form input [type="checkbox"]{
-    width: 80%;
-    color: #11131b;
-    margin: 5px;
-    border-radius: 4px;
-    padding: 5px;
-    padding-left: 0px;
-    font-weight: 500;
-    font-size: 16px;
-    text-decoration: none;
-    border: none;
-    margin-bottom: 10px;
+form p>input [type="checkbox"]{
+    float: left;
+    height: 25px;
+    width: 25px;
 }
 
 form select,
 form option {
-    width: 80%;
+    width: 95%;
     color: #11131b;
     margin: 5px;
     border-radius: 4px;
@@ -248,6 +256,35 @@ footer p, a{
 .main-content{
     padding: 35px 60px 35px 60px;
 }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 1px solid var(--boxColor);
+    padding: 8px;
+}
+
+table tr{background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--darkerColor);
+  color: white;
+}
+
+table a{
+    color: var(--hoverColor);
+}
+
+
 
 #landing{
     background-color: var(--mainColor);
