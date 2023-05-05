@@ -15,5 +15,5 @@ urlpatterns = [
          name='password_reset_done'),
     path('password-reset-confirm/<uidb64>/<token>/',
          PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    path('usuario', include('usuarios.urls', namespace='usuarios')),
+    path('usuarios', include('usuarios.urls', namespace='usuarios')),
 ]
