@@ -167,3 +167,18 @@ def agregar_curso(request):
         "form": CursoPensumModelForm()
     }
     return render(request, "pensum/agregar_curso.html", context)
+
+def editar_curso_pensum(request, pk):
+    curso = CursoPensum.objects.get(id=pk)
+    form = CursoPensumModelForm(instance=curso)
+    if request.method == "POST":
+        form = CursoPensumModelForm(request.POST, instance=curso)
+        if form.is_valid():
+            print(form.cleaned_data)
+            form.save()
+            return redirect("/inicio/pensum/carrera")
+    context = {
+        "form" : form,
+        "curso" : curso
+    }
+    return render(request, "pensum/editar_curso_pensum.html", context)
