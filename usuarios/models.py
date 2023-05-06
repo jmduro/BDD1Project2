@@ -35,10 +35,14 @@ class Estudiante(models.Model):
     #     'CertificacionNacimiento', on_delete=models.SET_NULL, null=True)
     habilitado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f"{self.nombres} {self.apellidos}"
+
 
 class Docente(models.Model):
     usuario = models.OneToOneField(
         'Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    rol = models.ForeignKey('Login.Rol', on_delete=models.SET_NULL, null=True)
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     profesion = models.CharField(max_length=50)
@@ -50,10 +54,14 @@ class Docente(models.Model):
     # docente_titular
     habilitado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f"{self.nombres} {self.apellidos}"
+
 
 class Usuario(models.Model):
     usuario = models.OneToOneField(
         'Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    rol = models.ForeignKey('Login.Rol', on_delete=models.SET_NULL, null=True)
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     profesion = models.CharField(max_length=50)
@@ -63,3 +71,6 @@ class Usuario(models.Model):
     telefono = models.CharField(max_length=25)
     num_personal = models.CharField(max_length=10)
     habilitado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.nombres} {self.apellidos}"
