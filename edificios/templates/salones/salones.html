@@ -11,21 +11,33 @@
     <div class="initial">
         <h1 class="title">Adminsitración de salones</h1>
     </div>
-    <div class="main-button"> 
-        Nombre
-        <a  href="#"><button>buscar</button></a>
-        <a  href="{% url 'edificios:clasificacionSalones' %}"><button>Clasificación</button></a>
-        <a  href="{% url 'edificios:salones_crear' %}"><button>Crear</button></a>
-        
-    </div>
-
     <div class="main-box">
-    tabla
-        <a  href="{% url 'edificios:salones_editar' %}"><button>Editar</button></a>
-    </div>
-
-    <div class="final">
-    <a  href="{% url 'edificios:edificio' %}"><button>Regresar</button></a>
+        <table class="main-table">
+            <br>
+            Nombre
+            <a  href="#"><button class="logbtn">buscar</button></a>
+            <a  href="{% url 'edificios:clasificacionSalones' %}"><button class="logbtn">Clasificación</button></a>
+            <a  href="{% url 'edificios:salones_crear' %}"><button class="logbtn">Crear</button></a>
+            <br>
+            <tr>
+                <th>Salon</th>
+                <th>edificio</th>
+                <th>Opciones</th>
+            </tr>
+            {% for salon in salones %}
+            <tr>
+                <td>{{ salon.nombre }}</td>
+                <td>{{ salon.edificio }}</td>
+                <td>
+                    <ul>
+                        <li><a href="{% url 'edificios:salones_editar' salon.pk %}">Editar</a></li>
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a  href="{% url 'edificios:edificio' %}"><button class="logbtn">Regresar</button></a>
     </div>
 </div>
 

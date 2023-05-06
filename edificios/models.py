@@ -26,4 +26,6 @@ class Salon(models.Model):
     salon_clasificacion = models.ForeignKey("Salon_clasificacion", on_delete=models.SET_DEFAULT,null=True, default="")
     habilitado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f"{self.nombre}"
 

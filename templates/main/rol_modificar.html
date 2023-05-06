@@ -17,12 +17,15 @@
 <!--Contenido de la pagina del indice.-->
 <div class="logContent">
     
+    <table>
     <form method="post">
     {% csrf_token %}
     {{form.as_p}}
     
     <a><button class="logbtn" type="submit">Actualizar</button></a>
     </form>
+</table>
+<br>
     <a href="{% url 'roles'%}"><button class="logbtn" >Regresar</button></a>
 </div>
 
