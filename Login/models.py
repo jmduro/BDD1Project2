@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class UsuarioAutenticable(AbstractUser):
     nombre = models.CharField(max_length=20)
-    apellido = models.CharField(max_length=20)
+    apellido = models.CharField(max_length=20, null=True)
     correo= models.EmailField()
     telefono= models.CharField(max_length=20)
     is_organisor=models.BooleanField(default=True)
