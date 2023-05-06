@@ -4,9 +4,9 @@ from django.views import generic
 from django.contrib.auth import get_user_model
 
 from .models import Estudiante, Docente, Usuario
-from .forms import (EstudianteCreateModelForm, EstudianteUpdateModelForm,
-                    DocenteCreateModelForm, DocenteUpdateModelForm,
-                    UsuarioCreateModelForm, UsuarioUpdateModelForm)
+from .forms import (EstudianteCrearModelForm, EstudianteEditarModelForm,
+                    DocenteCrearModelForm, DocenteEditarModelForm,
+                    UsuarioCrearModelForm, UsuarioEditarModelForm)
 from .util import generate_password
 
 
@@ -16,18 +16,18 @@ UsuarioAutenticable = get_user_model()
 # -----> Vistas módulo Estudiantes
 
 
-class EstudianteListView(generic.ListView):
-    template_name = 'estudiantes/estudiante_list.html'
+class EstudianteListaView(generic.ListView):
+    template_name = 'estudiantes/lista_estudiante.html'
     queryset = Estudiante.objects.all()
     context_object_name = 'estudiantes'
 
 
-class EstudianteCreateView(generic.CreateView):
-    template_name = 'estudiantes/estudiante_create.html'
-    form_class = EstudianteCreateModelForm
+class EstudianteCrearView(generic.CreateView):
+    template_name = 'estudiantes/crear_estudiante.html'
+    form_class = EstudianteCrearModelForm
 
     def get_success_url(self):
-        return reverse('usuarios:estudiante-list')
+        return reverse('usuarios:lista-estudiante')
 
     def form_valid(self, form):
         nuevo_estudiante = form.save(commit=False)
@@ -37,7 +37,7 @@ class EstudianteCreateView(generic.CreateView):
             username=usuario, password=password)
         nuevo_estudiante.usuario_id = nuevo_usuario_autenticable.id
         nuevo_estudiante.save()
-        return super(EstudianteCreateView, self).form_valid(form)
+        return super(EstudianteCrearView, self).form_valid(form)
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -46,31 +46,31 @@ class EstudianteCreateView(generic.CreateView):
         return context
 
 
-class EstudianteUpdateView(generic.UpdateView):
-    template_name = 'estudiantes/estudiante_update.html'
+class EstudianteEditarView(generic.UpdateView):
+    template_name = 'estudiantes/editar_estudiante.html'
     queryset = Estudiante.objects.all()
-    form_class = EstudianteUpdateModelForm
+    form_class = EstudianteEditarModelForm
 
     def get_success_url(self):
-        return reverse('usuarios:estudiante-list')
+        return reverse('usuarios:lista-estudiante')
 
 
 # -------------------------------------------------------------------
 # -----> Vistas módulo Docentes
 
 
-class DocenteListView(generic.ListView):
-    template_name = 'docentes/docente_list.html'
+class DocenteListaView(generic.ListView):
+    template_name = 'docentes/lista_docente.html'
     queryset = Docente.objects.all()
     context_object_name = 'docentes'
 
 
-class DocenteCreateView(generic.CreateView):
-    template_name = 'docentes/docente_create.html'
-    form_class = DocenteCreateModelForm
+class DocenteCrearView(generic.CreateView):
+    template_name = 'docentes/crear_docente.html'
+    form_class = DocenteCrearModelForm
 
     def get_success_url(self):
-        return reverse('usuarios:docente-list')
+        return reverse('usuarios:lista-docente')
 
     def form_valid(self, form):
         nuevo_docente = form.save(commit=False)
@@ -80,7 +80,7 @@ class DocenteCreateView(generic.CreateView):
             username=usuario, password=password)
         nuevo_docente.usuario_id = nuevo_usuario_autenticable.id
         nuevo_docente.save()
-        return super(DocenteCreateView, self).form_valid(form)
+        return super(DocenteCrearView, self).form_valid(form)
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -89,31 +89,31 @@ class DocenteCreateView(generic.CreateView):
         return context
 
 
-class DocenteUpdateView(generic.UpdateView):
-    template_name = 'docentes/docente_update.html'
+class DocenteEditarView(generic.UpdateView):
+    template_name = 'docentes/editar_docente.html'
     queryset = Docente.objects.all()
-    form_class = DocenteUpdateModelForm
+    form_class = DocenteEditarModelForm
 
     def get_success_url(self):
-        return reverse('usuarios:docente-list')
+        return reverse('usuarios:lista-docente')
 
 
 # -------------------------------------------------------------------
 # -----> Vistas módulo Usuarios
 
 
-class UsuarioListView(generic.ListView):
-    template_name = 'usuarios/usuario_list.html'
+class UsuarioListaView(generic.ListView):
+    template_name = 'usuarios/lista_usuario.html'
     queryset = Usuario.objects.all()
     context_object_name = 'usuarios'
 
 
-class UsuarioCreateView(generic.CreateView):
-    template_name = 'usuarios/usuario_create.html'
-    form_class = UsuarioCreateModelForm
+class UsuarioCrearView(generic.CreateView):
+    template_name = 'usuarios/crear_usuario.html'
+    form_class = UsuarioCrearModelForm
 
     def get_success_url(self):
-        return reverse('usuarios:usuario-list')
+        return reverse('usuarios:lista-usuario')
 
     def form_valid(self, form):
         nuevo_usuario = form.save(commit=False)
@@ -123,7 +123,7 @@ class UsuarioCreateView(generic.CreateView):
             username=usuario, password=password)
         nuevo_usuario.usuario_id = nuevo_usuario_autenticable.id
         nuevo_usuario.save()
-        return super(UsuarioCreateView, self).form_valid(form)
+        return super(UsuarioCrearView, self).form_valid(form)
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -132,10 +132,10 @@ class UsuarioCreateView(generic.CreateView):
         return context
 
 
-class UsuarioUpdateView(generic.UpdateView):
-    template_name = 'usuarios/usuario_update.html'
+class UsuarioEditarView(generic.UpdateView):
+    template_name = 'usuarios/editar_usuario.html'
     queryset = Usuario.objects.all()
-    form_class = UsuarioUpdateModelForm
+    form_class = UsuarioEditarModelForm
 
     def get_success_url(self):
-        return reverse('usuarios:usuario-list')
+        return reverse('usuarios:lista-usuario')

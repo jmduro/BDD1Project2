@@ -1,0 +1,42 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Edificio 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de edificios</h1>
+    </div>
+    <div class="main-box">
+        <table class="main-table">
+            <br>
+            <a  href="{% url 'edificios:edificio_crear' %}"><button class="logbtn">Crear</button></a>
+            <br>
+            <tr>
+                <th>Edificio</th>
+                <th>Cantidad de salones</th>
+                <th>fecha de creacion</th>
+                <th>Opciones</th>
+            </tr>
+            {% for edificio in edificios %}
+            <tr>
+                <td>{{ edificio.nombre }}</td>
+                <td>{{ edificio.cantidad }}</td>
+                <td>{{ edificio.fecha_creacion }}</td>
+                <td>
+                    <ul>
+                        <li><a href="{% url 'edificios:edificio_editar' edificio.pk %}">Editar</a> | <a href="{% url 'edificios:salones'  %}">Administrar salones</a></li>
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+    </div>
+</div>
+
+{% endblock %}

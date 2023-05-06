@@ -1,0 +1,44 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Salon 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Adminsitración de salones</h1>
+    </div>
+    <div class="main-box">
+        <table class="main-table">
+            <br>
+            Nombre
+            <a  href="#"><button class="logbtn">buscar</button></a>
+            <a  href="{% url 'edificios:clasificacionSalones' %}"><button class="logbtn">Clasificación</button></a>
+            <a  href="{% url 'edificios:salones_crear' %}"><button class="logbtn">Crear</button></a>
+            <br>
+            <tr>
+                <th>Salon</th>
+                <th>edificio</th>
+                <th>Opciones</th>
+            </tr>
+            {% for salon in salones %}
+            <tr>
+                <td>{{ salon.nombre }}</td>
+                <td>{{ salon.edificio }}</td>
+                <td>
+                    <ul>
+                        <li><a href="{% url 'edificios:salones_editar' salon.pk %}">Editar</a></li>
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a  href="{% url 'edificios:edificio' %}"><button class="logbtn">Regresar</button></a>
+    </div>
+</div>
+
+{% endblock %}

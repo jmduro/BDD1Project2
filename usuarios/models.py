@@ -1,5 +1,8 @@
 from django.db import models
+from django.db.models.signals import pre_save
+from django.contrib.auth import get_user_model
 
+UsuarioAutenticable = get_user_model()
 
 # class DocumentoIdentificacion(models.Model):
 #     nombre = models.CharField(max_length=30)
@@ -34,7 +37,8 @@ class Estudiante(models.Model):
 
 
 class Docente(models.Model):
-    usuario = models.OneToOneField('Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    usuario = models.OneToOneField(
+        'Login.UsuarioAutenticable', on_delete=models.CASCADE)
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     profesion = models.CharField(max_length=50)
@@ -48,7 +52,8 @@ class Docente(models.Model):
 
 
 class Usuario(models.Model):
-    usuario = models.OneToOneField('Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    usuario = models.OneToOneField(
+        'Login.UsuarioAutenticable', on_delete=models.CASCADE)
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
     profesion = models.CharField(max_length=50)

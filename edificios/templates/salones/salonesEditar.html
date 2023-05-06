@@ -1,0 +1,33 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+
+{% block title %}
+    Salon 
+{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Editar salones</h1>
+    </div>
+
+<div class="main-content">
+    <div class="initial">
+        <h1 class="title">Editar {{ salones.nombre }}</h1>
+    </div>
+    <div class="main-box">
+        <br>
+        <a  href="{% url 'edificios:salones' %}"><button class="logbtn">Regresar</button></a>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="logbtn" type="submit">Guardar</button>
+        </form>
+        <br>
+        <a  href="{% url 'edificios:salon_clasificacion_crear' %}"><button class="logbtn">SC +</button></a>
+    </div>
+</div>
+
+{% endblock %}

@@ -15,11 +15,14 @@
     <div class="main-box">
         <table class="main-table">
             <br>
-            <a  href="{% url 'pensum:crear_pensum' %}"><button class="logbtn">Crear curso</button></a>
+            <a  href="{% url 'pensum:carrera' %}"><button class="logbtn">Regresar</button></a>
+            <br>
+            <a  href="{% url 'pensum:crear_pensum' %}"><button class="logbtn">Crear pensum</button></a>
             <br>
             <tr>
               <th>Codigo</th>
               <th>Nombre</th>
+              <th>Creacion</th>
               <th>Opciones</th>
             </tr>
             {% for pen in pensum %}
@@ -27,8 +30,12 @@
               <td>{{ pen.codigo }}</td>
               <td>{{ pen.inicio }}</td>
               <td>{{ pen.creacion }}</td>
-              <td><a href="{% url 'pensum:editar_pensum' pensum.pk %}">Editar</a></td>
-              <td><a href="#">Administrar cursos</a></td>
+              <td>
+                <ul>
+                    <li><a href="{% url 'pensum:editar_pensum' pen.pk %}">Editar</a></li>
+                    <li><a href="{% url 'pensum:ciclo' pen.pk %}">Administrar cursos</a></li>
+                </ul>
+              </td>
             </tr>
             {% endfor %}
           </table>

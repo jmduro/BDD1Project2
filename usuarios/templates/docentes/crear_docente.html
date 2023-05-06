@@ -1,0 +1,27 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}
+Registro de docentes
+{% endblock title %}
+
+{% block content %}
+
+<div class="logContent">
+    <a href="{% url 'usuarios:lista-docente' %}">Cancelar</a>
+    <hr>
+    <h1>Registro de docentes</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="logbtn" type="submit">Registrar</button>
+    </form>
+    <div>
+        <p>Usuario: <span id="usuario"></span></p>
+        <p>Contraseña: {{ password }}</p>
+    </div>
+</div>
+<script src="{% static 'js/calendario.js' %}"></script>
+<script src="{% static 'js/actualizarUsuario.js' %}"></script>
+
+{% endblock content %}

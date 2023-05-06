@@ -1,0 +1,29 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+Administración de estudiantes
+{% endblock title %}
+
+{% block content %}
+<div class="logContent">
+    <a href="{% url 'usuarios:crear-estudiante' %}">Registrar</a>
+    <hr>
+    <h1>Administración de estudiantes</h1>
+    <table>
+        <tr>
+            <th>Nombre completo</th>
+            <th>Carnet</th>
+            <th>Telefono</th>
+            <th></th>
+        </tr>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.nombres }} {{ estudiante.apellidos }}</td>
+            <td>{{ estudiante.carnet }}</td>
+            <td>{{ estudiante.telefono }}</td>
+            <td><a href="{% url 'usuarios:editar-estudiante' estudiante.pk %}">Editar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

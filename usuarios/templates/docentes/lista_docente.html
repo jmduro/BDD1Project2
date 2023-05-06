@@ -1,0 +1,31 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+Administración de docentes
+{% endblock title %}
+
+{% block content %}
+<div class="logContent">
+    <a href="{% url 'usuarios:docente-create' %}">Registrar</a>
+    <hr>
+    <h1>Administración de docentes</h1>
+    <table>
+        <tr>
+            <th>No. Personal</th>
+            <th>Nombre completo</th>
+            <th>CUI</th>
+            <th>Telefono</th>
+            <th></th>
+        </tr>
+        {% for docente in docentes %}
+        <tr>
+            <td>{{ docente.num_personal }}</td>
+            <td>{{ docente.nombres }} {{ docente.apellidos }}</td>
+            <td>{{ docente.cui }}</td>
+            <td>{{ docente.telefono }}</td>
+            <td><a href="{% url 'usuarios:editar-docente' docente.pk %}">Editar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

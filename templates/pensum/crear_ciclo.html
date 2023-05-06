@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block title %}
-    Crear pensum 
+    Crear ciclo 
 {% endblock %}
 
 {% block content %}
 
 <div class="main-content">
     <div class="initial">
-        <h1 class="title">Crear pensum</h1>
+        <h1 class="title">Crear ciclo</h1>
     </div>
     <div class="main-box">
         <br>
@@ -18,7 +18,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="logbtn" type="submit">Crear pensum</button>
+            <button class="logbtn" type="submit">Crear ciclo</button>
         </form>
     </div>
 </div>

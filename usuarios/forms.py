@@ -2,7 +2,7 @@ from django import forms
 from .models import Estudiante, Docente, Usuario
 
 
-class EstudianteCreateModelForm(forms.ModelForm):
+class EstudianteCrearModelForm(forms.ModelForm):
     class Meta:
         model = Estudiante
         fields = (
@@ -22,7 +22,7 @@ class EstudianteCreateModelForm(forms.ModelForm):
         }
 
 
-class EstudianteUpdateModelForm(forms.ModelForm):
+class EstudianteEditarModelForm(forms.ModelForm):
     class Meta:
         model = Estudiante
         fields = (
@@ -43,7 +43,7 @@ class EstudianteUpdateModelForm(forms.ModelForm):
         }
 
 
-class DocenteCreateModelForm(forms.ModelForm):
+class DocenteCrearModelForm(forms.ModelForm):
     class Meta:
         model = Docente
         fields = (
@@ -59,7 +59,7 @@ class DocenteCreateModelForm(forms.ModelForm):
         )
 
 
-class DocenteUpdateModelForm(forms.ModelForm):
+class DocenteEditarModelForm(forms.ModelForm):
     class Meta:
         model = Docente
         fields = (
@@ -76,7 +76,7 @@ class DocenteUpdateModelForm(forms.ModelForm):
         )
 
 
-class UsuarioCreateModelForm(forms.ModelForm):
+class UsuarioCrearModelForm(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = (
@@ -91,7 +91,7 @@ class UsuarioCreateModelForm(forms.ModelForm):
         )
 
 
-class UsuarioUpdateModelForm(forms.ModelForm):
+class UsuarioEditarModelForm(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = (
