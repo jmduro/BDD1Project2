@@ -61,14 +61,14 @@ class SalonesCrearView(generic.CreateView):
     def form_valid(self, form):
         nuevo_salon = form.save(commit=False)
         nuevo_salon.save()
-        return super(SalonCreateForm, self).form_valid(form)
+        return super(SalonesCrearView, self).form_valid(form)
     
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
         return context
 
 class SalonesEditarView(generic.UpdateView):
-    template_name = 'edificio/salones/salonesEditar.html'
+    template_name = 'salones/salonesEditar.html'
     queryset = Salon.objects.all()
     form_class = SalonUpdateForm
 
