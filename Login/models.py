@@ -7,8 +7,8 @@ from django.contrib.auth.models import AbstractUser
 class UsuarioAutenticable(AbstractUser):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=20, null=True)
-    correo= models.EmailField()
-    telefono= models.CharField(max_length=20)
+    correo= models.EmailField(default='null@mail.com')
+    telefono= models.CharField(max_length=20, null=True)
     is_organisor=models.BooleanField(default=True)
     is_agent=models.BooleanField(default=False)
     rol = models.ForeignKey('Rol', on_delete=models.SET_NULL, null=True)
