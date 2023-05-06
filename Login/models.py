@@ -5,11 +5,11 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class UsuarioAutenticable(AbstractUser):
-    pass
+    rol = models.ForeignKey('Rol', on_delete=models.SET_NULL, null=True)
 
 
 class Rol(models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=30)
     descripcion = models.TextField()
     administrar_carreras = models.BooleanField(default=True)
     administrar_cursos = models.BooleanField(default=True)
@@ -22,4 +22,4 @@ class Rol(models.Model):
     habilitado = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.nombre} {self.descripcion} {self.habilitado}"
+        return f"{self.nombre}"
