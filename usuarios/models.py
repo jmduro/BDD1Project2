@@ -21,6 +21,7 @@ UsuarioAutenticable = get_user_model()
 class Estudiante(models.Model):
     usuario = models.OneToOneField(
         'Login.UsuarioAutenticable', on_delete=models.CASCADE)
+    rol = models.ForeignKey('Login.Rol', on_delete=models.SET_NULL, null=True)
     # tipo_documento = models.ForeignKey(
     #     'DocumentoIdentificacion', on_delete=models.SET_NULL, null=True)
     num_identificacion = models.CharField(max_length=30, null=True)
