@@ -11,14 +11,14 @@ class UsuarioAutenticable(AbstractUser):
 class Rol(models.Model):
     nombre = models.CharField(max_length=30)
     descripcion = models.TextField()
-    administrar_carreras = models.BooleanField(default=True)
-    administrar_cursos = models.BooleanField(default=True)
-    administrar_estudiantes = models.BooleanField(default=True)
-    administrar_docentes = models.BooleanField(default=True)
-    administrar_usuarios = models.BooleanField(default=True)
-    validar_cargas_academicas = models.BooleanField(default=True)
-    administrar_roles_y_permisos = models.BooleanField(default=True)
-    administracion_de_edificios_y_salones = models.BooleanField(default=True)
+    administrar_carreras = models.BooleanField(default=False)
+    administrar_cursos = models.BooleanField(default=False)
+    administrar_estudiantes = models.BooleanField(default=False)
+    administrar_docentes = models.BooleanField(default=False)
+    administrar_usuarios = models.BooleanField(default=False)
+    validar_cargas_academicas = models.BooleanField(default=False)
+    administrar_roles_y_permisos = models.BooleanField(default=False)
+    administracion_de_edificios_y_salones = models.BooleanField(default=False)
     habilitado = models.BooleanField(default=True)
 
     def __str__(self):
