@@ -15,7 +15,7 @@ class UsuarioAutenticable(AbstractUser):
 
 
 class Rol(models.Model):
-    nombre = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=50)
     descripcion = models.TextField()
     administrar_carreras = models.BooleanField(default=False)
     administrar_cursos = models.BooleanField(default=False)

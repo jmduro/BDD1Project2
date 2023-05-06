@@ -16,7 +16,7 @@ def roles_iniciales(apps, schema_editor):
                        administrar_roles_y_permisos=True,
                        administracion_de_edificios_y_salones=True,
                        )
-    Rol.objects.create(nombre='Personal administrativo',
+    Rol.objects.create(nombre='Personal Admin',
                        descripcion='Gestión del sistema',
                        administrar_carreras=True,
                        administrar_cursos=True,
