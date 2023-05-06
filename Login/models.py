@@ -5,9 +5,9 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class UsuarioAutenticable(AbstractUser):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20, null=True)
     apellido = models.CharField(max_length=20, null=True)
-    correo= models.EmailField(default='null@mail.com')
+    correo= models.EmailField(null=True)
     telefono= models.CharField(max_length=20, null=True)
     is_organisor=models.BooleanField(default=True)
     is_agent=models.BooleanField(default=False)
