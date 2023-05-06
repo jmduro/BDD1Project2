@@ -12,10 +12,14 @@
         <h1 class="title">Crear edificio</h1>
     </div>
     <div class="main-box">
-        forms crear
-    </div>
-    <div class="final">
-    <a  href="{% url 'edificios:edificio' %}"><button>Regresar</button></a>
+        <br>
+        <a  href="{% url 'edificios:edificio' %}"><button class="logbtn">Regresar</button></a>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="logbtn" type="submit">Crear</button>
+        </form>
     </div>
 </div>
 

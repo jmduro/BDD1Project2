@@ -24,7 +24,7 @@ class EdificioCrearView(generic.CreateView):
     form_class = EdificioCreateForm
 
     def get_success_url(self):
-        return reverse('edificio:edificio')
+        return reverse('edificios:edificio')
     
     def form_valid(self, form):
         nuevo_edificio = form.save(commit=False)
@@ -41,7 +41,7 @@ class EdificioEditarView(generic.UpdateView):
     form_class = EdificioUpdateForm
 
     def get_success_url(self):
-        return reverse('edificio:edificio')
+        return reverse('edificios:edificio')
 
 # Vistas para Salon
 
@@ -56,7 +56,7 @@ class SalonesCrearView(generic.CreateView):
     form_class = SalonCreateForm
 
     def get_success_url(self):
-        return reverse('edificio:salones')
+        return reverse('edificios:salones')
     
     def form_valid(self, form):
         nuevo_salon = form.save(commit=False)
@@ -73,7 +73,7 @@ class SalonesEditarView(generic.UpdateView):
     form_class = SalonUpdateForm
 
     def get_success_url(self):
-        return reverse('edificio:salones')
+        return reverse('edificios:salones')
 
 # Vistas para Clasificacion Salon
 
@@ -87,7 +87,7 @@ class SalonesClasificacionCrearView(generic.CreateView):
     form_class = SalonClasiCreateForm
 
     def get_success_url(self):
-        return reverse('edificio:clasificacionSalones')
+        return reverse('edificios:clasificacionSalones')
     
     def form_valid(self, form):
         nueva_clasi = form.save(commit=False)
@@ -104,4 +104,4 @@ class SalonesClasificacionEditarView(generic.UpdateView):
     form_class = SalonClasiUpdateForm
 
     def get_success_url(self):
-        return reverse('edificio:clasificacionSalones')
+        return reverse('edificios:clasificacionSalones')
