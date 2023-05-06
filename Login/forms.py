@@ -9,7 +9,12 @@ Usuario = get_user_model()
 class CustomCreationUserForm(UserCreationForm):
     class Meta:
         model = Usuario
-        fields = ('username',)
+        fields = ("username",
+                  'nombre',
+                  'apellido',
+                  'correo',
+                  'telefono',
+                  )
         field_classes = {'username': UsernameField}
 
 
